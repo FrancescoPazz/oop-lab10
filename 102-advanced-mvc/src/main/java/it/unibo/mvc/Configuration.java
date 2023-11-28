@@ -1,5 +1,10 @@
 package it.unibo.mvc;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Encapsulates the concept of configuration.
@@ -101,8 +106,9 @@ public final class Configuration {
 
         /**
          * @return a configuration
+         * @throws FileNotFoundException
          */
-        public final Configuration build() {
+        public final Configuration build() throws FileNotFoundException {
             if (consumed) {
                 throw new IllegalStateException("The builder can only be used once");
             }
